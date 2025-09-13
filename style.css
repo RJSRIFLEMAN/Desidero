@@ -1,0 +1,51 @@
+:root{
+  --teal:#16c79a;
+  --teal-2:#12a384;
+  --bg-dark:#0a0f1f;
+  --text:#f6f7fb;
+  --muted:#b9c3cf;
+  --card-bg:rgba(15,18,28,.55);
+  --blur:18px;
+  --radius:22px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0; font-family: ui-rounded, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; color:var(--text); background:var(--bg-dark); overflow:hidden}
+
+/* Background layers */
+.bg{position:fixed; inset:0; z-index:-2; background:#000}
+#bgVideo,#bgImage{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+#bgImage{display:none}
+.bg-gradient{display:none; position:absolute; inset:0; background: linear-gradient(135deg, #0b1d3b 0%, #0a142c 50%, #050a15 100%)}
+.vignette{position:absolute; inset:0; z-index:-1; pointer-events:none; background:radial-gradient(80% 60% at 50% 50%, transparent 62%, rgba(0,0,0,.42) 100%)}
+
+/* Page */
+.phone{position:relative; width:100vw; height:100dvh; display:flex; align-items:center; justify-content:center; padding:16px}
+
+.card{width:min(92vw,420px); height:min(90dvh,760px); display:flex; flex-direction:column; gap:14px; background:var(--card-bg); backdrop-filter: blur(var(--blur)); -webkit-backdrop-filter: blur(var(--blur)); border-radius:28px; padding:18px 16px 16px; border:1px solid rgba(255,255,255,.08); box-shadow:0 10px 40px rgba(0,0,0,.45)}
+.card.card--invisible{background:transparent; border-color:transparent; box-shadow:none; backdrop-filter:none; -webkit-backdrop-filter:none}
+
+.title{font-weight:800; line-height:1.05; letter-spacing:.2px; font-size:clamp(28px,7vw,48px); margin:2px 6px 0; text-shadow:0 2px 14px rgba(0,0,0,.35)}
+.subtitle{margin:0 6px; color:var(--muted); font-size:14px}
+
+.scrollbox{flex:1 1 auto; overflow:auto; margin:6px; padding:14px 10px; background:rgba(0,0,0,.22); border-radius:var(--radius); border:1px solid rgba(255,255,255,.08); line-height:1.6; font-size:15px; scrollbar-width:thin}
+.scrollbox::-webkit-scrollbar{width:6px}
+.scrollbox::-webkit-scrollbar-thumb{background:rgba(255,255,255,.22); border-radius:8px}
+
+.cta{display:flex; gap:10px; align-items:center; justify-content:space-between; padding:8px; margin:0 6px}
+.btn{appearance:none; -webkit-appearance:none; border:0; cursor:pointer; padding:14px 18px; border-radius:18px; font-weight:700; background:linear-gradient(135deg,var(--teal),var(--teal-2)); color:#02130f; box-shadow:0 8px 24px rgba(18,195,150,.36); transition:transform .08s ease, filter .2s ease; text-align:center; text-decoration:none}
+.cta .btn{flex:1 1 auto}
+.btn:active{transform:translateY(1px)}
+
+.hint{font-size:12px; color:var(--muted); text-align:center; margin-top:2px}
+
+/* Overlays for 0 & 6 */
+.overlay{position:absolute; inset:0; display:flex; align-items:center; justify-content:center;}
+#introOverlay { pointer-events: none; }
+#endOverlay { z-index: 9999; pointer-events: auto; }
+.overlay .intro-block{display:flex; flex-direction:column; align-items:center; gap:6px}
+.overlay h1{margin:0; font-size: clamp(36px, 9vw, 64px); font-weight:900; text-shadow:0 6px 28px rgba(0,0,0,.55)}
+.overlay p{margin:0; font-size: clamp(14px, 4vw, 18px); color:var(--muted)}
+
+/* Safe area */
+.safe{padding-bottom:max(8px, env(safe-area-inset-bottom))}

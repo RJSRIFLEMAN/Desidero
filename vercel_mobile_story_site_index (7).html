@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Dedek Story</title>
+  <meta name="theme-color" content="#0a0f1f" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg" aria-hidden="true">
+    <video id="bgVideo" playsinline muted loop preload="auto"></video>
+    <img id="bgImage" alt="Background" />
+    <div class="bg-gradient" id="bgGrad"></div>
+    <div class="vignette"></div>
+  </div>
+
+  <!-- Intro (Bagian 0) tanpa card -->
+  <div id="introOverlay" class="overlay">
+    <div class="intro-block">
+      <h1 id="introTitle">Hai, Dedek Rere</h1>
+      <p id="introSub">- Abang Raja</p>
+    </div>
+  </div>
+  <!-- End (Bagian 6) tanpa card -->
+  <div id="endOverlay" class="overlay" hidden>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:10px; pointer-events:auto;">
+      <h1 style="margin-bottom:0;">Pax Vobiscum</h1>
+      <div style="font-size:18px; color:var(--muted); margin-bottom:12px;">Damai Beserta Kamu</div>
+      <div class="cta safe" style="width:100%; justify-content:center;">
+        <button class="btn" id="spotifyBtn" style="font-size:18px; min-width:120px;">Abang Sayang Dedek Rere</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="phone">
+    <section class="card" id="card" role="region" aria-live="polite">
+      <h1 class="title" id="title"></h1>
+      <p class="subtitle" id="subtitle"></p>
+      <div class="scrollbox" id="content" hidden></div>
+      <div class="cta safe"><button class="btn" id="nextBtn">Lanjut ➜</button></div>
+      <div class="hint" id="hint">Re Abang sesayang itu sama Kamu.</div>
+    </section>
+  </main>
+
+  <audio id="bgAudio" preload="auto" src="kami-rendahkan-diri-rere-raja_IjEzBAX3.aac"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
